@@ -2,57 +2,82 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- jQuery Library Link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Style link -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
-
-    <title>Coding Quiz</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Quiz - Let's play </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light">
+        <a id="highscore-link" class="navbar-brand" href="#">View Highscores</a>
+        <div class="time">Time: <span class="time-count">70</span></div>
+    </nav>
 
-    <!-- Main Content -->
-    <div class="container">
-        <header class="header">
-            <h1>Coding quiz challenge</h1>
-            <section class="scoreSection">
-                <p class="scoreOne">Score = <span class="counter"> 0 </span></p>
-                <p class="timeOne"> Time Left = <span class="countDown"> 0 </span></p>
-            </section>
-        </header>
-        <div class="initialPage">
-            <p>
-                welcome to the coding quiz! Press the Start button to start the quiz, noting the timer will start as soon as you do. Once done, you will be directed to enter your name to log your score.
-            </p>
-            <div class="InitialButtons">
-                <button class="start">
-                    Start Quiz
-                </button>
-                <button class="resultButton">
-                    Results
-                </button>
+    <!-- Section -->
+    <main class="container">
+        <section class="row">
+            <div class="col-md-12 col-sm-12">
+                <div id="start">
+                    <h2>Coding Quiz Challenge</h2>
+                    <p>
+                        Try to answer the following coding questions within the time limit. Keep in mind that incorrect answers will penalize your quiz time by ten seconds! 10 questions with 5 points per correct answer.
+                    </p>
+                    <button id="start-button" type="button" class="btn btn-primary">
+                        Start Quiz
+                    </button>
+                </div>
+                <div id="quiz" style="display: none;">
+                    <div id="question"></div>
+                    <div id="choices">
+                        <ol>
+                            <li>
+                                <button type="button" class="btn btn-primary" id="A" onclick="checkAnswer('A')"></button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-primary" id="B" onclick="checkAnswer('B')"></button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-primary" id="C" onclick="checkAnswer('C')"></button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-primary" id="D" onclick="checkAnswer('D')"></button>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="results">
+                    <h2>All Done :D !</h2>
+                    <div id="score-display"></div>
+                    <div>
+                        <input type="text" id="initials" name="initials" placeholder="Enter your initials" required />
+                        <button id="submit-button" type="button" class="btn btn-success">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <div id="highscores">
+                    <h2>Highscores</h2>
+                    <div>
+                        <ol id="score-ranking"></ol>
+                        <a src="index.html"><button id="go-back" type="button" class="btn btn-primary">
+                                Go Back
+                            </button></a>
+                        <button id="clear-scores" type="button" class="btn btn-primary">
+                            Clear Highscores
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="resultContainer">
-            <h2 class="results">Results</h2>
-            <form class="resultsForm">
-                <label>High Scores!</label>
-                <input type="text" placeholder="Enter name here" class="resultsText" />
-            </form>
-            <ul class="resultsList"></ul>
-        </div>
-
-        <!-- Questions Container -->
-        <ul class="questionsContainer">
-        </ul>
-    </div>
-
-    <!-- Javascript Link -->
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 

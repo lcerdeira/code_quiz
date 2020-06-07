@@ -1,285 +1,307 @@
-// jQuery initial function
-$(document).ready(function() {
+// Array of questions
+var questionsArray = [{
+        question: "What is CSS?",
+        answerA: "1. Cascading Sheets Style",
+        answerB: "2. Cascading Level Sheets Style",
+        answerC: "3. Cascading Style Sheets",
+        answerD: "4. Cascading Style Sliders",
+        correct: "C",
+    },
+    {
+        question: "What is HTML?",
+        answerA: "1. Hyper Text Markup Language",
+        answerB: "2. Hommer Tool Markup Language",
+        answerC: "3. Hyper Thread Markup Language",
+        answerD: "4. Hyperlinks Text Markup Language",
+        correct: "A",
+    },
+    {
+        question: "Which HTML attribute is used to define inline styles?",
+        answerA: "1. Style",
+        answerB: "2. Class",
+        answerC: "3. Styles",
+        answerD: "4. Font",
+        correct: "A",
+    },
+    {
+        question: "Choose the correct HTML element for the largest heading:",
+        answerA: "1. head",
+        answerB: "2. heading",
+        answerC: "3. h6",
+        answerD: "4. h1",
+        correct: "D",
+    },
+    {
+        question: "In JavaScript, what is a block of code called that is used to perform a specific task?",
+        answerA: "1. Function",
+        answerB: "2. Declaration",
+        answerC: "3. Variable",
+        answerD: "4. String",
+        correct: "A",
+    },
+    {
+        question: "Which character is used to indicate an end tag?",
+        answerA: "1. *",
+        answerB: "2. <",
+        answerC: "3. /",
+        answerD: "4. ˆ",
+        correct: "C",
+    },
+    {
+        question: "HTML comments start with <!-- and end with -->",
+        answerA: "1. False",
+        answerB: "2. True",
+        answerC: "3. Conditional statements",
+        answerD: "4. NA",
+        correct: "B",
+    },
+    {
+        question: "In JavaScript, what element is used to store multiple values in a single variable?",
+        answerA: "1. Arrays",
+        answerB: "2. Strings",
+        answerC: "3. Variables",
+        answerD: "4. Functions",
+        correct: "A",
+    },
+    {
+        question: "What is the name of the object that allows you to perform mathematical tasks with the interpreter?",
+        answerA: "1. Count",
+        answerB: "2. Solve",
+        answerC: "3. Number",
+        answerD: "4. Math",
+        correct: "D",
+    },
+    {
+        question: "What can loops offer JavaScript code as a whole?",
+        answerA: "1. Improved performance.",
+        answerB: "2. Added plug-ins",
+        answerC: "3. Cross-platform support",
+        answerD: "4. Cleaner syntax",
+        correct: "A",
+    },
+];
 
-    // Questions List
-    var questionsArray = [{
-            question: "1. Inside which HTML element do we put the JavaScript?",
-            answers: {
-                0: "\"script\"",
-                1: "\"js\"",
-                2: "\"scripting\"",
-                3: "\"javascript\""
-            },
-            correctAnswer: "0"
-        },
-        {
-            question: "2. Where is the correct place to insert a JavaScript?",
-            answers: {
-                0: "The \"head\" section",
-                1: "Both the \"head\" section and the \"body\" section",
-                2: "The \"body\" section",
-                3: "In the Style Sheet"
-            },
-            correctAnswer: "1"
-        },
-        {
-            question: "3. What is the correct attribute for referring to an external script called \"123\.js\"?",
-            answers: {
-                0: "src=",
-                1: "name=",
-                2: "href=",
-                3: "loc="
-            },
-            correctAnswer: "0"
-        },
-        {
-            question: "4. How do you write \"Hello World\" in an alert box?",
-            answers: {
-                0: "alert(\"Hello World\"); ",
-                1: "msg(\"Hello World\");",
-                2: "msgBox(\"Hello World\");",
-                3: "alertBox(\"Hello World\");"
-            },
-            correctAnswer: "0"
-        },
-        {
-            question: "5. How do you create a function in JavaScript?",
-            answers: {
-                0: "function myFunction() ",
-                1: "function:myFunction()",
-                2: "function = myFunction()",
-                3: "toFunction = myFunction()"
-            },
-            correctAnswer: "0"
-        },
-        {
-            question: "6. How do you call a function named \"myFunction\"?",
-            answers: {
-                0: "call function myFunction()",
-                1: "myFunction()",
-                2: "call myFunction()",
-                3: "here myFunction() myFunction()"
-            },
-            correctAnswer: "1"
-        },
-        {
-            question: "7. How to write an IF statement in JavaScript?",
-            answers: {
-                0: "if i = 5",
-                1: "if i == 5 then",
-                2: "if (i == 5)  ",
-                3: "if i = 5 then"
-            },
-            correctAnswer: "2"
-        },
-        {
-            question: "8. How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
-            answers: {
-                0: "if (i <> 5)",
-                1: "if i =! 5 then",
-                2: "if i <> 5",
-                3: "if (i != 5)"
-            },
-            correctAnswer: "3"
-        },
-        {
-            question: "9. How does a WHILE loop start?",
-            answers: {
-                0: "while (i <= 10)",
-                1: "while (i <= 10; i++)",
-                2: "while i = 1 to 10",
-                3: "for i = 1 to 10"
-            },
-            correctAnswer: "0"
-        },
-        {
-            question: "10. How can you add a comment in a JavaScript?",
-            answers: {
-                0: "//This is a comment ",
-                1: "!--This is a comment--",
-                2: "'This is a comment",
-                3: "/-This is a comment "
-            },
-            correctAnswer: "0"
-        },
-    ];
+// Variables storing elements
+var nav = document.querySelector("nav");
+var navHighscoreLink = document.querySelector("#highscore-link");
+var timeCount = document.querySelector(".time-count");
+var startDiv = document.querySelector("#start");
+var startButton = document.querySelector("#start-button");
+var quizDiv = document.querySelector("#quiz");
+var questionDiv = document.getElementById("question");
+var answerAButton = document.getElementById("A");
+var answerBButton = document.getElementById("B");
+var answerCButton = document.getElementById("C");
+var answerDButton = document.getElementById("D");
+var resultsDiv = document.querySelector("#results");
+var resultsScoreDiv = document.querySelector("#score-display");
+var initialsInput = document.querySelector("#initials");
+var submitScoreButton = document.querySelector("#submit-button");
+var highScoresDiv = document.querySelector("#highscores");
+var scoresRankedOl = document.querySelector("#score-ranking");
+var goBackButton = document.querySelector("#go-back");
+var clearScoresButton = document.querySelector("#clear-scores");
 
-    // Variables
-    var n = 0;
-    var counter = 0;
-    var totalTime = 30;
-    var highScores = [];
+// Variables for use in script
 
-    // when Start Quiz button is clicked...
-    $(".start").on("click", questionTime);
-    $(".start").on("click", startTimer);
-    $(".resultButton").on("click", resultsPage);
-    $(".resultButton").on("click", getHighScores);
+var lastQuestion = questionsArray.length - 1;
+var currentQuestion = 0;
+var totalSeconds = 0;
+var secondsElapsed = 0;
+var quizTimer;
+var quizScore = 0;
+var localStorageArray = [];
+var scoresArray = [];
 
-    // Questions List is called, initial page is hidden
-    function questionTime() {
+init();
 
-        // Display setting
-        $(".initialPage").css("display", "none");
-        $(".scoreSection").css("display", "block");
+// Hiding resultsDiv and highScoresDiv on page load
+function init() {
+    resultsDiv.style.display = "none";
+    highScoresDiv.style.display = "none";
 
-        // Show question
-        $(".questionsContainer").text(questionsArray[n].question);
-        $(".questionsContainer").append($("<hr>"));
+    // Retrieves locally stored scores
+    scoresArray = JSON.parse(localStorage.getItem("score"));
 
-        // Create Answer List
-        for (i = 0; i < 4; i++) {
-            var list = $("<li>");
-            $(list).text((i + 1) + ".");
+    // If scoresArray were retrieved from localStorage, update the localStorageArray to it
+    if (scoresArray !== null) {
+        localStorageArray = scoresArray;
+    }
+}
 
-            // Create Answer Buttons
-            var newButtons = $("<button>" + questionsArray[n].answers[i] + "</button>");
-            newButtons.attr("class", "buttons");
-            $(newButtons).attr("value", i);
+// startQuiz function activates on click of startButton.
+function startQuiz() {
+    // The startDiv and highScoreLink whilst appending the quizDiv
+    startDiv.style.display = "none";
+    navHighscoreLink.style.display = "none";
+    quizDiv.style.display = "block";
 
-            $(list).append(newButtons);
-            $(".questionsContainer").append(list);
-            $(".questionsContainer").append($("<hr>"));
+    // Questions and Answers render
+    renderQuestion();
+    // quizTimer commences countdown
+    renderCounter();
+}
 
-            newButtons.on("click", rightWrong);
-        };
+// Function renders a question from the questionsArray along with the answers relevant to that question.
+function renderQuestion() {
+    var q = questionsArray[currentQuestion];
 
-        // Determine if answer = right or wrong, then what happens when finished
-        function rightWrong() {
-            console.log($(this).prop("value"));
-            var userAnswer = $(this).prop("value");
+    questionDiv.innerHTML = "<p>" + q.question + "</p>";
+    answerAButton.innerHTML = q.answerA;
+    answerBButton.innerHTML = q.answerB;
+    answerCButton.innerHTML = q.answerC;
+    answerDButton.innerHTML = q.answerD;
+}
 
-            // If answer is right or wrong and theres no more questions
-            if (userAnswer === questionsArray[n].correctAnswer && n === 9) {
-                console.log("thats all");
-                counter++;
-                getHighScores();
-                resultsPage();
-                $(".counter").text(counter);
-            }
-            if (userAnswer != questionsArray[n].correctAnswer && n === 9) {
-                console.log("thats all");
-                getHighScores();
-                resultsPage();
-            }
+// Function checks if the answer is correct or wrong as selected by the user.
+function checkAnswer(answer) {
+    if (answer == questionsArray[currentQuestion].correct) {
+        // Answer is correct, log 5 points to quizScore
+        quizScore += 5;
+    } else {
+        // else if answer is incorrect, deduct 10 seconds from quizTimer
+        secondsElapsed += 10;
+    }
+    // Increases currentQuestion if less than lastQuestion and renders a new question
+    if (currentQuestion < lastQuestion) {
+        currentQuestion++;
+        renderQuestion();
+    } else {
+        // else ends the quiz and shows the resultsDiv
+        stopTimer();
+    }
+}
 
-            // If answer is right or wrong and there is more questions
-            else if (userAnswer === questionsArray[n].correctAnswer && n < 9) {
-                console.log("correct");
-                n++;
-                counter++;
-                questionTime();
-                $(".counter").text(counter)
-                if (totalTime < 0) {
-                    totalTime = 0;
-                }
-            } else if (userAnswer != questionsArray[n].correctAnswer && n < 9) {
-                console.log("incorrect");
-                n++;
-                if (totalTime > 0) {
-                    totalTime -= 5;
-                }
-                if (totalTime < 0) {
-                    totalTime = 0;
-                }
-                questionTime();
-                $(".counter").text(counter);
-            };
-        };
-    };
+// Controls setting, countdown and stopping of the quizTimer
+function renderCounter() {
+    // Clears the quizTimer & sets the totalSeconds
+    setTime();
 
-    // Timer Function
-    function startTimer() {
+    // Increases secondsElapsed by 1 second which gets subtracted from the totalSeconds set in setTime()
+    quizTimer = setInterval(function() {
+        secondsElapsed++;
 
-        var countingDown = setInterval(function() {
-            $(".countDown").text(totalTime);
-            totalTime--;
-            console.log(totalTime)
-                // What happens when time runs out  
-            if (totalTime === -1) {
-                $(".countDown").text("");
-                getHighScores();
-                resultsPage();
-                clearInterval(countingDown);
-            }
-            // What happens if questions are finished before time runs out
-            else if (n === 9) {
-                clearInterval(countingDown);
-            };
-        }, 1000);
-    };
+        renderTime();
+    }, 1000);
+}
 
-    // Results Page
-    function resultsPage() {
+// Sets the totalSeconds
+function setTime() {
+    // Clears the quizTimer
+    clearInterval(quizTimer);
+    totalSeconds = 70;
+}
 
-        // What is displayed
-        $(".resultContainer").css("display", "block");
-        $(".results").css("display", "block");
-        $(".questionsContainer").css("display", "none");
-        $(".initialPage").css("display", "none");
-        $(".scoreOne").css("display", "none");
-        $(".timeOne").css("display", "none");
+// Changes the timeCount in the html based on the secondsLeft
+function renderTime() {
+    secondsLeft = totalSeconds - secondsElapsed;
+    timeCount.textContent = secondsLeft;
+    // If secondsElapsed equals totalSeconds, the quizTimer stops
+    if (secondsElapsed >= totalSeconds) {
+        stopTimer();
+    }
+}
 
-        // clear list
-        $(".resultsList").text("");
+// Renders the submitScorePage whilst stopping and resetting the quizTimer
+function stopTimer() {
+    secondsElapsed = 0;
+    setTime();
+    // Resets the timeCount in the html based on the time in setTime()
+    renderTime();
+    recordScorePage();
+}
 
-        // When a user logs their score
-        for (var i = 0; i < highScores.length; i++) {
-            var high = highScores[i];
+// Renders resultsDiv to be able to log your score with your initials
+function recordScorePage() {
+    quizDiv.style.display = "none";
+    resultsDiv.style.display = "block";
+    resultsScoreDiv.innerHTML =
+        "<h4>" + "Your final score is: " + quizScore + "</h4>";
+    initialsInput.value = "";
+}
 
-            var list = $("<li>");
-            list.text(high);
-            list.attr("data-index", i);
-            list.attr("class", "highScoreList");
+// Renders highScoresDiv to display results in order from highest to lowest
+function renderRecordedScores(event) {
+    event.preventDefault();
 
-            var removeButton = $("<button>");
-            removeButton.attr("class", "remove");
-            removeButton.text("x");
+    // Stores the users score
+    storeScores();
+    // Renders the score/s to the scoresRankedOl
+    renderScores();
 
-            list.append(removeButton);
-            $(".resultsList").append(list);
-        };
-    };
+    resultsDiv.style.display = "none";
+    nav.style.display = "none";
+    highScoresDiv.style.display = "block";
+}
 
-    // Retrieving high scores from local storage
-    function getHighScores() {
-        var savedHighScores = JSON.parse(localStorage.getItem("highScores"));
-        if (savedHighScores !== null) {
-            highScores = savedHighScores;
-        };
-        resultsPage();
-    };
+// Stores the users score
+function storeScores() {
+    // If no initials are entered, alerts the user and prevents the highScoresDiv from rendering
+    if (initialsInput.value.length == 0) {
+        alert("Please enter your initials Brother (=ˆ.ˆ=)");
+        return false;
+    }
 
-    // Saving high scores to local storage
-    function saveHighScores() {
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-    };
+    // Stores initials entered and score in an empty array
+    var scoreObject = { initials: initialsInput.value, userScore: quizScore };
+    // Score is pushed to the localStorageArray
+    localStorageArray.push(scoreObject);
+    // Stores the users score in localStorage
+    localStorage.setItem("score", JSON.stringify(localStorageArray));
+}
 
-    // When the user submits their name
-    $(".resultsForm").on("submit", function(event) {
-        event.preventDefault();
-        var highScoreText = $(".resultsText").val();
-        if (highScoreText === "") {
-            return;
-        };
-
-        highScores.push(highScoreText + ":" + " Score = " + counter + " TimeLeft = " + (totalTime + 1) + " ");
-        $(".resultsText").val("");
-
-        resultsPage();
-        saveHighScores();
+// Renders the score/s to the scoresRankedOl
+function renderScores() {
+    // Clears any existing appended li
+    scoresRankedOl.innerHTML = "";
+    // Sorts the scores
+    localStorageArray.sort(function(a, b) {
+        return b.userScore - a.userScore;
     });
+    // Loops through the scoresArray and appends each li
+    for (var i = 0; i < localStorageArray.length; i++) {
+        scoreStored = localStorageArray[i];
 
-    // Removing a high score from the list
-    $(".resultsList").on("click", function(event) {
-        var input = event.target;
+        var li = document.createElement("li");
+        li.textContent = scoreStored.initials + " - " + scoreStored.userScore;
+        li.setAttribute("id", "userScore");
 
-        if (input.matches("button") === true) {
-            var index = input.parentElement.getAttribute("data-index");
-            highScores.splice(index, 1);
+        scoresRankedOl.appendChild(li);
+    }
+}
 
-            saveHighScores();
-            resultsPage();
-        };
-    });
-});
+// Function hides startDiv & navbar & loads highScoresDiv on click of highScoreLink in navbar
+function renderHighScoresLink() {
+    startDiv.style.display = "none";
+    nav.style.display = "none";
+    highScoresDiv.style.display = "block";
+}
+
+// Function to return user to the quiz start page to have another attempt
+function goBackButtonFunction() {
+    highScoresDiv.style.display = "none";
+    nav.style.display = "flex";
+    navHighscoreLink.style.display = "flex";
+    startDiv.style.display = "block";
+    resetQuiz();
+}
+
+// Resets the quiz currentQuestion and quizScore to 0 so the user can start again
+function resetQuiz() {
+    currentQuestion = 0;
+    quizScore = 0;
+}
+
+// Clears the scores onClick of the clearScoreButton
+function clearScore() {
+    localStorage.removeItem("score");
+    localStorageArray = [];
+    scoresRankedOl.innerHTML = "";
+}
+
+// Event Listeners
+navHighscoreLink.addEventListener("click", renderHighScoresLink);
+startButton.addEventListener("click", startQuiz);
+submitScoreButton.addEventListener("click", renderRecordedScores);
+goBackButton.addEventListener("click", goBackButtonFunction);
+clearScoresButton.addEventListener("click", clearScore);

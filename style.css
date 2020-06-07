@@ -1,110 +1,45 @@
-/* All */
-
 * {
     box-sizing: border-box;
-    background-color: rgb(232, 246, 255);
 }
 
 body {
-    position: relative;
-}
-
-.container {
-    border-style: solid;
-    border-radius: 10px;
-    position: relative;
-    margin: 100px auto;
-    max-width: 800px;
-    height: 600px;
-}
-
-
-/* Header */
-
-.header {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
 }
 
-.header p {
-    font-weight: bold;
-    font-size: 20px;
+#navbar1 .navbar-nav .nav-link {
+    color: silver;
 }
 
-.scoreSection {
-    display: none;
+.bg-light .navbar-brand {
+    color: red;
 }
 
-
-/* Quiz */
-
-.initialPage p {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px 10px 20px 10px;
-    color: rgb(41, 41, 41);
+.btn-primary {
+    background-color: red;
+    border-color: red;
 }
 
-.InitialButtons {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+.row {
+    margin: auto;
+    padding: auto;
 }
 
-.start,
-.resultButton {
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-    background-color: white;
+input:required {
+    border: 2px solid purple;
+}
+
+li {
+    margin: 1vh 1vw;
+    padding: 1vh 1vw;
+    border-radius: 30px;
+}
+
+#userScore {
+    margin: 1vh 1vw;
+    padding: 1vh 1vw;
     border-radius: 5px;
-}
-
-.buttons {
-    margin: 10px 10px 10px 50px;
-    padding: 10px;
-    width: 200px;
-    background-color: white;
-    border-radius: 5px;
-    color: rgb(41, 41, 41);
-}
-
-.questionsContainer {
-    text-align: left;
-    font-weight: bold;
-    font-size: 18px;
-    font-style: italic;
-}
-
-
-/* Results */
-
-.resultContainer {
-    display: none;
-    margin: 20px;
-}
-
-.results {
-    display: none;
-}
-
-.resultsText {
-    height: 2rem;
-    background-color: white;
-}
-
-.resultsList {
-    position: relative;
-    padding: 0px;
-}
-
-.remove {
-    position: relative;
-    background-color: grey;
-    color: white;
-    border-radius: 10px;
-}
-
-.highScoreList {
-    list-style: none;
-    margin: 5px;
+    background-color: silver;
+    color: black;
+    height: auto;
 }
