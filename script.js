@@ -1,82 +1,82 @@
 // Array of questions
 var questionsArray = [{
         question: "What is CSS?",
-        answerA: "1. Cascading Sheets Style",
-        answerB: "2. Cascading Level Sheets Style",
-        answerC: "3. Cascading Style Sheets",
-        answerD: "4. Cascading Style Sliders",
+        answerA: "Cascading Sheets Style",
+        answerB: "Cascading Level Sheets Style",
+        answerC: "Cascading Style Sheets",
+        answerD: "Cascading Style Sliders",
         correct: "C",
     },
     {
         question: "What is HTML?",
-        answerA: "1. Hyper Text Markup Language",
-        answerB: "2. Hommer Tool Markup Language",
-        answerC: "3. Hyper Thread Markup Language",
-        answerD: "4. Hyperlinks Text Markup Language",
+        answerA: "Hyper Text Markup Language",
+        answerB: "Hommer Tool Markup Language",
+        answerC: "Hyper Thread Markup Language",
+        answerD: "Hyperlinks Text Markup Language",
         correct: "A",
     },
     {
         question: "Which HTML attribute is used to define inline styles?",
-        answerA: "1. Style",
-        answerB: "2. Class",
-        answerC: "3. Styles",
-        answerD: "4. Font",
+        answerA: "Style",
+        answerB: "Class",
+        answerC: "Styles",
+        answerD: "Font",
         correct: "A",
     },
     {
         question: "Choose the correct HTML element for the largest heading:",
-        answerA: "1. head",
-        answerB: "2. heading",
-        answerC: "3. h6",
-        answerD: "4. h1",
+        answerA: "head",
+        answerB: "heading",
+        answerC: "h6",
+        answerD: "h1",
         correct: "D",
     },
     {
         question: "In JavaScript, what is a block of code called that is used to perform a specific task?",
-        answerA: "1. Function",
-        answerB: "2. Declaration",
-        answerC: "3. Variable",
-        answerD: "4. String",
+        answerA: "Function",
+        answerB: "Declaration",
+        answerC: "Variable",
+        answerD: "String",
         correct: "A",
     },
     {
         question: "Which character is used to indicate an end tag?",
-        answerA: "1. *",
-        answerB: "2. <",
-        answerC: "3. /",
-        answerD: "4. ˆ",
+        answerA: "*",
+        answerB: "<",
+        answerC: "/",
+        answerD: "ˆ",
         correct: "C",
     },
     {
         question: "HTML comments start with <!-- and end with -->",
-        answerA: "1. False",
-        answerB: "2. True",
-        answerC: "3. Conditional statements",
-        answerD: "4. NA",
+        answerA: "False",
+        answerB: "True",
+        answerC: "Conditional statements",
+        answerD: "NA",
         correct: "B",
     },
     {
         question: "In JavaScript, what element is used to store multiple values in a single variable?",
-        answerA: "1. Arrays",
-        answerB: "2. Strings",
-        answerC: "3. Variables",
-        answerD: "4. Functions",
+        answerA: "Arrays",
+        answerB: "Strings",
+        answerC: "Variables",
+        answerD: "Functions",
         correct: "A",
     },
     {
         question: "What is the name of the object that allows you to perform mathematical tasks with the interpreter?",
-        answerA: "1. Count",
-        answerB: "2. Solve",
-        answerC: "3. Number",
-        answerD: "4. Math",
+        answerA: "Count",
+        answerB: "Solve",
+        answerC: "Number",
+        answerD: "Math",
         correct: "D",
     },
     {
         question: "What can loops offer JavaScript code as a whole?",
-        answerA: "1. Improved performance.",
-        answerB: "2. Added plug-ins",
-        answerC: "3. Cross-platform support",
-        answerD: "4. Cleaner syntax",
+        answerA: "Improved performance",
+        answerB: "Added plug-ins",
+        answerC: "Cross-platform support",
+        answerD: "Cleaner syntax",
         correct: "A",
     },
 ];
@@ -156,10 +156,10 @@ function renderQuestion() {
 // Function checks if the answer is correct or wrong as selected by the user.
 function checkAnswer(answer) {
     if (answer == questionsArray[currentQuestion].correct) {
-        // Answer is correct, log 5 points to quizScore
+        // Answer is correct
         quizScore += 5;
     } else {
-        // else if answer is incorrect, deduct 10 seconds from quizTimer
+        // else if answer is incorrect, minus 10 seconds from quizTimer
         secondsElapsed += 10;
     }
     // Increases currentQuestion if less than lastQuestion and renders a new question
@@ -238,7 +238,7 @@ function renderRecordedScores(event) {
 function storeScores() {
     // If no initials are entered, alerts the user and prevents the highScoresDiv from rendering
     if (initialsInput.value.length == 0) {
-        alert("Please enter your initials Brother (=ˆ.ˆ=)");
+        alert("Please enter your initials Brother");
         return false;
     }
 
