@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery Library Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Style link -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>Coding Quiz</title>
+</head>
+
+<body>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header class="header">
+            <h1>Coding quiz challenge</h1>
+            <section class="scoreSection">
+                <p class="scoreOne">Score = <span class="counter"> 0 </span></p>
+                <p class="timeOne"> Time Left = <span class="countDown"> 0 </span></p>
+            </section>
+        </header>
+        <div class="initialPage">
+            <p>
+                welcome to the coding quiz! Press the Start button to start the quiz, noting the timer will start as soon as you do. Once done, you will be directed to enter your name to log your score.
+            </p>
+            <div class="InitialButtons">
+                <button class="start">
+                    Start Quiz
+                </button>
+                <button class="resultButton">
+                    Results
+                </button>
+            </div>
+        </div>
+        <div class="resultContainer">
+            <h2 class="results">Results</h2>
+            <form class="resultsForm">
+                <label>High Scores!</label>
+                <input type="text" placeholder="Enter name here" class="resultsText" />
+            </form>
+            <ul class="resultsList"></ul>
+        </div>
+
+        <!-- Questions Container -->
+        <ul class="questionsContainer">
+        </ul>
+    </div>
+
+    <!-- Javascript Link -->
+    <script src="script.js"></script>
+</body>
+
+</html>
