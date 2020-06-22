@@ -1,4 +1,4 @@
-# HW-04 Web APIs: Code Quiz
+Web API: Code Quiz
 
 
 ## Criteria
